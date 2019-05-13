@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                docker build -t my-app .
+                sh  "docker build -t my-app . "
                 echo "Hello world!"
             }
         }
