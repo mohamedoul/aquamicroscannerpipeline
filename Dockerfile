@@ -4,8 +4,7 @@ ADD https://get.aquasec.com/microscanner /
 RUN chmod +x /microscanner
 ARG NWEwMzgxZjM4N2Rk
 RUN /microscanner ${token}
-RUN docker build -t my-app .
-RUN echo "No vulnerabilities!"
+
 
 
 
