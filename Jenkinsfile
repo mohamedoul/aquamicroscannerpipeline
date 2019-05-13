@@ -1,10 +1,8 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
-            steps {
-                 echo "Hello world!"
-            }
+        stage ("Aqua microscanner") {
+            aquaMicroscanner imageName:'alpine:latest' , notCompliesCmd:'exit 1' , onDisallowed:'fail'
         }
     }
 }
