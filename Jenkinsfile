@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Aqua microscanner') {
             steps{
-                aquaMicroscanner imageName:'' , notCompliesCmd:'exit 1' , onDisallowed:'fail' 
+                step { aquaMicroscanner imageName:'alpine:latest' , notCompliesCmd:'exit 1' , onDisallowed:'fail' }
                  }
         }   
     }
