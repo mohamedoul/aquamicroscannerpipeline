@@ -3,7 +3,7 @@ pipeline {
     stages {
     stage('Package') {
         steps{
-            docker.build("aboullaite")
+            docker.build ('aboullaite')
          }
     }
 
