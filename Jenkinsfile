@@ -19,7 +19,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            aquaMicroscanner imageName: 'getintodevops/hellonode', notCompliesCmd: 'exit 1', onDisallowed: 'fail'
+            aquaMicroscanner imageName: 'getintodevops/hellonode', notCompliesCmd: 'exit 1000', onDisallowed: 'fail'
             sh 'echo "Tests passed"'
         }
     }
