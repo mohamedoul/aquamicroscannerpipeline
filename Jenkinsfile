@@ -3,13 +3,13 @@ pipeline {
     stages {
     stage('Package') {
         steps{
-            docker.build("aboullaite/sb-app")
+            docker.build("aboullaite")
          }
     }
 
     stage('Scan') {
         steps{
-            aquaMicroscanner imageName: 'aboullaite/sb-app', notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html'
+            aquaMicroscanner imageName: 'aboullaite', notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html'
          }
     }  
     }
