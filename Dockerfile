@@ -1,33 +1,13 @@
-FROM alpine:3.9
+# use a node base image
+FROM node:7-onbuild
 
-# dependencies required for running "phpize"
-# these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
-ENV PHPIZE_DEPS \
-		autoconf \
-		dpkg-dev dpkg \
-		file \
-		g++ \
-		gcc \
-		libc-dev \
-		make \
-		pkgconf \
-		re2c
+# set maintainer
+LABEL maintainer "miiro@getintodevops.com"
 
-# persistent / runtime deps
-RUN apt-get update && apt-get -y install ca-certificates
-RUN apk add --no-cache \
-		ca-certificates \
-		curl \
-		tar \
-		xz \
-# https://github.com/docker-library/php/issues/494
-		openssl
+# set a health check
+HEALTHCHECK --interval=5s \
+            --timeout=5s \
+            CMD curl -f http://127.0.0.1:8000 || exit 1
 
-# ensure www-data user exists
-RUN set -x \
-	&& addgroup -g 82 -S www-data \
-	&& adduser -u 82 -D -S -G www-data www-data
-
-
-
-
+# tell docker what port to expose
+EXPOSE 8000
