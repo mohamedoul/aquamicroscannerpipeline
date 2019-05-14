@@ -1,11 +1,7 @@
 pipeline {
     agent { dockerfile true }
     stages {
-    stage('Package') {
-        steps{
-            docker.build ('aboullaite')
-         }
-    }
+   
 
     stage('Scan') {
         steps{
