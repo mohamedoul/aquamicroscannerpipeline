@@ -19,9 +19,9 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-        app.inside {
+   
             aquaMicroscanner imageName: 'getintodevops/hellonode', notCompliesCmd: 'exit 1000', onDisallowed: 'fail'
             sh 'echo "Tests passed"'
-        }
+     
     }
 }
