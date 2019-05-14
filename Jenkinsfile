@@ -12,6 +12,7 @@ node {
          * docker build on the command line */
 
         app = docker.build("getintodevops/hellonode")
+        sh 'echo "image bhuilt succefffully"'
     }
 
     stage('Test image') {
