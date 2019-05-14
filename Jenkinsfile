@@ -1,10 +1,16 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage ('Aqua microscanner') {
-            steps{
-                step { aquaMicroscanner imageName:'alpine:latest' , notCompliesCmd:'exit 1' , onDisallowed:'fail' }
-                 }
-        }   
+    stage('Package') {
+        steps{
+            docker.build("aboullaite/sb-app")
+         }
+    }
+
+    stage('Scan') {
+        steps{
+            aquaMicroscanner imageName: 'aboullaite/sb-app', notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html'
+         }
+    }  
     }
 }
