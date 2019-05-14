@@ -14,6 +14,7 @@ ENV PHPIZE_DEPS \
 		re2c
 
 # persistent / runtime deps
+RUN apt-get update && apt-get -y install ca-certificates
 RUN apk add --no-cache \
 		ca-certificates \
 		curl \
