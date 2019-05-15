@@ -20,7 +20,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
    
-            aquaMicroscanner imageName: 'getintodevops/hellonode', notCompliesCmd: 'exit 1000', onDisallowed: 'fail'
+            aquaMicroscanner imageName: 'getintodevops/hellonode', notCompliesCmd: 'exit 1000', onDisallowed: 'fail',  outputFormat: 'json'
             sh 'echo "Tests passed"'
      
     }
